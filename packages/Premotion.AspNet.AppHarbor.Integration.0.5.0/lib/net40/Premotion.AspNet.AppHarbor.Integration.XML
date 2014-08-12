@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Premotion.AspNet.AppHarbor.Integration</name>
+    </assembly>
+    <members>
+        <member name="T:Premotion.AspNet.AppHarbor.Integration.AppHarborModule">
+            <summary>
+            This module modifies the native <see cref="T:System.Web.HttpContext"/> to hide the AppHarbor load balancing setup from ASP.Net.
+            </summary>
+            <remarks>
+            This should take care of the following issues:
+            http://support.appharbor.com/kb/getting-started/workaround-for-generating-absolute-urls-without-port-number
+            http://support.appharbor.com/kb/getting-started/information-about-our-load-balancer
+            </remarks>
+        </member>
+        <member name="F:Premotion.AspNet.AppHarbor.Integration.AppHarborModule.AppHarborDetectionSettingKey">
+            <summary>
+            Defines the name of the setting which to use to detect AppHarbor.
+            </summary>
+        </member>
+        <member name="F:Premotion.AspNet.AppHarbor.Integration.AppHarborModule.ForwardedForHeaderName">
+            <summary>
+            AppHarbor uses a load balancer which rewrites the REMOTE_ADDR header. 
+            The original user's IP addres is stored in a separate header with this name.
+            </summary>
+        </member>
+        <member name="F:Premotion.AspNet.AppHarbor.Integration.AppHarborModule.ForwardedProtocolHeaderName">
+            <summary>
+            AppHarbor uses a load balancer which rewrites the SERVER_PROTOCOL header. 
+            The original protocol is stored in a separate header with this name.
+            </summary>
+            <remarks>http://en.wikipedia.org/wiki/X-Forwarded-For</remarks>
+        </member>
+        <member name="F:Premotion.AspNet.AppHarbor.Integration.AppHarborModule.ForwardedForAddressesSeparator">
+            <summary>
+            Defines the separator which to use to split the Forwarded for header.
+            </summary>
+            <remarks>http://en.wikipedia.org/wiki/X-Forwarded-For</remarks>
+        </member>
+        <member name="M:Premotion.AspNet.AppHarbor.Integration.AppHarborModule.Init(System.Web.HttpApplication)">
+            <summary>
+            Initializes a module and prepares it to handle requests.
+            </summary>
+            <param name="context">An <see cref="T:System.Web.HttpApplication"/> that provides access to the methods, properties, and events common to all application objects within an ASP.NET application </param>
+        </member>
+        <member name="M:Premotion.AspNet.AppHarbor.Integration.AppHarborModule.Dispose">
+            <summary>
+            Disposes of the resources (other than memory) used by the module that implements <see cref="T:System.Web.IHttpModule"/>.
+            </summary>
+        </member>
+    </members>
+</doc>
